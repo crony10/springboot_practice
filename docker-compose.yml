@@ -1,0 +1,18 @@
+version: '3.8'
+
+networks:
+  default:
+
+services:
+  db:
+    image: postgres:alpine3.18
+    container_name: conference
+    ports:
+      - "5432:5432"
+    volumes:
+      - "./.data/db:/var/lib/postgresql"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=conference
+      - POSTGRES_HOST=192.168.0.106
